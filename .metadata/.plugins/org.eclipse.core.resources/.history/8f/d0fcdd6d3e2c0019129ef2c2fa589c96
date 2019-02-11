@@ -1,0 +1,36 @@
+package Service;
+
+import java.util.Hashtable;
+import Model.Client;
+
+public class ClientService {
+	Hashtable<String, Client> clients = new Hashtable<String, Client>();
+	
+	public ClientService() {
+		Client client = new Client();
+		client.setId(1);
+		client.setFirstName("Juan");
+		client.setLastName("Vargas");
+		clients.put("1", client);
+		
+		client = new Client();
+		client.setId(2);
+		client.setFirstName("Alan");
+		client.setLastName("Vargas");
+		clients.put("2", client);
+		
+	}
+	
+	public Client getClient(int id) {
+		int id2 = id;
+		if (clients.containsKey(id2)) {
+			return clients.get(id2);
+		}
+		else
+			return null;
+	}
+	
+	public Hashtable<String, Client> getAll(){
+		return clients;
+	}
+}

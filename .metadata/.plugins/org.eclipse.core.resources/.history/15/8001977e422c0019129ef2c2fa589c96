@@ -1,0 +1,15 @@
+package View;
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+import Model.Client;
+
+@Component
+public class Request {
+
+	private static void reqest() {
+		RestTemplate restTemplate = new RestTemplate();
+		Client client = restTemplate.getForObject("http://localhost:8080/clients/1", Client.class);
+		System.out.println("Persona name "+ client.getFullName());
+	}
+}
